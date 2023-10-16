@@ -114,7 +114,6 @@ class WeatherHomeFragment : Fragment(), LocationListener {
             locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 5000, 1f, this)
         } catch(_: Exception){
             println(getString(R.string.error_in_getting_location_permission))
-            Toast.makeText(context, getString(R.string.error_in_getting_location_permission), Toast.LENGTH_SHORT).show()
         }
     }
 

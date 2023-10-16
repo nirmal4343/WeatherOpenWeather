@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="weather"
+            type="com.sample.weatherinfo.domain.model.WeatherHourlyDtl" />
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margin_10dp"
+        android:orientation="vertical"
+        app:cardCornerRadius="@dimen/margin_10dp"
+        app:cardElevation="@dimen/margin_5dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:id="@+id/dateTimeHourly"
+                style="@style/TextAppearance.AppCompat.Title"
+                android:layout_width="wrap_content"
+                android:ellipsize="end"
+                android:singleLine="true"
+                android:textSize="@dimen/_14sp"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/margin_5dp"
+                android:text="@{weather.dateTime}"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                tools:text="Place Name" />
+
+            <TextView
+                android:id="@+id/city_label"
+                style="@style/TextAppearance.AppCompat.Title"
+                app:layout_constraintTop_toBottomOf="@id/dateTimeHourly"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/margin_5dp"
+                android:textSize="@dimen/_14sp"
+                android:text='@{weather.descriptionMain + " ( " + weather.description + " )"}'
+                tools:text="Temperature" />
+
+            <ImageView
+                android:layout_width="@dimen/_50sp"
+                android:layout_height="@dimen/_50sp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:imageUrl="@{weather.weatherIcon}"
+                android:id="@+id/weather_condition_icon"/>
+
+            <TextView
+                android:id="@+id/currentTemp"
+                style="@style/TextAppearance.AppCompat.Title"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintRight_toLeftOf="@id/weather_condition_icon"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/margin_5dp"
+                android:textSize="@dimen/_14sp"
+                android:text="@{@string/temp(weather.temp)}"
+                tools:text="56" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </com.google.android.material.card.MaterialCardView>
+</layout>

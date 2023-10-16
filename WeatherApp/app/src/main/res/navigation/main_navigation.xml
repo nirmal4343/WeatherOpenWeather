@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_navigation"
+    app:startDestination="@id/weatherInfoHome">
+
+    <fragment
+        android:id="@+id/weatherInfoHome"
+        android:name="com.sample.weatherinfo.presentation.weather_home.WeatherHomeFragment"
+        android:label="WeatherInfoFragment" >
+        <action
+            android:id="@+id/action_weatherInfoFragment_to_weatherHourlyFragment"
+            app:destination="@id/weatherHourlyFragment"
+            />
+    </fragment>
+
+    <fragment
+        android:id="@+id/weatherHourlyFragment"
+        android:name="com.sample.weatherinfo.presentation.weather_hourly.WeatherHourlyListFragment"
+        android:label="fragment_weather_hourly_list"
+        tools:layout="@layout/fragment_weather_hourly_list" >
+        <argument
+            android:name="location"
+            app:argType="string"
+            app:nullable="true" />
+    </fragment>
+</navigation>

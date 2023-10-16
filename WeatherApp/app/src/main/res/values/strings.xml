@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">Weather App</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="nothing_found">Nothing Found</string>
+    <string name="search_hint">Search city here..</string>
+    <string name="no_record_found">No Records Found!</string>
+
+    <string name="feels_like">Feels Like: %1$s \u2109 </string>
+    <string name="temp">%1$s\u2109 </string>
+    <string name="high_temp">High: %1$s\u2109 </string>
+    <string name="low_temp">Low: %1$s\u2109 </string>
+    <string name="next_3_day_s_forecast_hourly">Next 3 day\'s forecast (Hourly)</string>
+    <string name="permission_granted">Permission Granted</string>
+    <string name="permission_denied">Permission Denied</string>
+    <string name="error_in_getting_location_permission">Please go to phone Settings and give permission manually </string>
+    <string name="go">Go</string>
+</resources>

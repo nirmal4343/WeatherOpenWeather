@@ -41,7 +41,7 @@ fun WeatherCard(
                 Text(
                     text = data.placeName,
                     modifier = Modifier.align(Alignment.End),
-                    color = Color.White
+                    color = Color.Black
                 )
 
                 Spacer(modifier = Modifier.height(16.dp))
@@ -53,13 +53,13 @@ fun WeatherCard(
                 Text(
                     text = "${data.temp}°F",
                     fontSize = 50.sp,
-                    color = Color.White
+                    color = Color.Black
                 )
                 Spacer(modifier = Modifier.height(16.dp))
                 Text(
                     text = data.descriptionMain,
                     fontSize = 20.sp,
-                    color = Color.White
+                    color = Color.Black
                 )
             }
         }

@@ -30,11 +30,11 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import coil.compose.rememberAsyncImagePainter
-import com.plcoding.weatherapp.presentation.ui.theme.DarkBlue
-import com.plcoding.weatherapp.presentation.ui.theme.DeepBlue
 import com.plcoding.weatherapp.presentation.ui.theme.WeatherAppTheme
 import com.sample.weather.R
 import com.sample.weatherinfo.common.LocationTracker
+import com.sample.weatherinfo.presentation.theme.DeepGray
+import com.sample.weatherinfo.presentation.theme.LightGray
 import com.sample.weatherinfo.presentation.weather_home.WeatherCard
 import com.sample.weatherinfo.presentation.weather_home.WeatherHomeViewModel
 import com.sample.weatherinfo.presentation.weather_hourly.WeatherHourlyViewModel
@@ -68,14 +68,14 @@ class MainActivity : AppCompatActivity() {
                     Column(
                         modifier = Modifier
                             .fillMaxSize()
-                            .background(DarkBlue)
+                            .background(LightGray)
                     ) {
                         WeatherCard(
                             state = viewModel.state,
-                            backgroundColor = DeepBlue
+                            backgroundColor = DeepGray
                         )
                         Card(
-                            backgroundColor = DeepBlue,
+                            backgroundColor = LightGray,
                             shape = RoundedCornerShape(10.dp),
                             modifier = Modifier.padding(16.dp)
                         ) {
@@ -87,7 +87,7 @@ class MainActivity : AppCompatActivity() {
 
                                 Text(
                                     text = "Next 5 Days",
-                                    color = Color.White,
+                                    color = Color.Black,
                                     modifier = Modifier
                                         .weight(1f)
                                 )

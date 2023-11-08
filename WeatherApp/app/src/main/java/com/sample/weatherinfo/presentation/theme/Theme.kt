@@ -1,4 +1,4 @@
-package com.plcoding.weatherapp.presentation.ui.theme
+package com.sample.weatherinfo.presentation.theme
 
 import androidx.compose.material.MaterialTheme
 import androidx.compose.runtime.Composable

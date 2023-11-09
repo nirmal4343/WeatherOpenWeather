@@ -7,10 +7,12 @@ import androidx.activity.compose.setContent
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
+import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.plcoding.weatherapp.presentation.ui.theme.WeatherAppTheme
+import com.sample.weatherinfo.presentation.theme.WeatherAppTheme
 import com.sample.weatherinfo.presentation.weather_home.WeatherHome
 import com.sample.weatherinfo.presentation.weather_home.WeatherHomeViewModel
 import dagger.hilt.android.AndroidEntryPoint
@@ -20,7 +22,7 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var permissionLauncher: ActivityResultLauncher<Array<String>>
 
-    private val viewModel: WeatherHomeViewModel by viewModels()
+    //private val viewModel: WeatherHomeViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,7 +30,7 @@ class MainActivity : AppCompatActivity() {
         permissionLauncher = registerForActivityResult(
             ActivityResultContracts.RequestMultiplePermissions()
         ) {
-            viewModel.getWeatherInfoByLatLong()
+
         }
         permissionLauncher.launch(arrayOf(
             Manifest.permission.ACCESS_FINE_LOCATION,
@@ -40,8 +42,12 @@ class MainActivity : AppCompatActivity() {
                 val navController = rememberNavController()
                 NavHost(navController = navController, startDestination = "WeatherHome") {
                     composable("WeatherHome") {
-                        WeatherHome(navigation = navController, viewModel)
+                        WeatherHome(navigation = navController, hiltViewModel())
                     }
+                    composable("WeatherForecast") {
+                        WeatherHome(navigation = navController, hiltViewModel())
+                    }
+
                 }
             }
         }

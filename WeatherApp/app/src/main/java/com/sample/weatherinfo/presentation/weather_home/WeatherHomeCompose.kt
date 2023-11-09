@@ -26,6 +26,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.style.TextAlign
@@ -35,7 +36,6 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import coil.compose.rememberAsyncImagePainter
-import com.plcoding.weatherapp.presentation.ui.theme.WeatherAppTheme
 import com.sample.weather.R
 import com.sample.weatherinfo.common.LocationTracker
 import com.sample.weatherinfo.presentation.theme.DeepGray
@@ -49,6 +49,11 @@ fun WeatherHome(
     navigation: NavController,
     viewModel: WeatherHomeViewModel
 ) {
+
+    LaunchedEffect("weatherHome") {
+        viewModel.getWeatherInfoByLatLong()
+    }
+
     Box (
         modifier = Modifier.fillMaxSize()
     ) {

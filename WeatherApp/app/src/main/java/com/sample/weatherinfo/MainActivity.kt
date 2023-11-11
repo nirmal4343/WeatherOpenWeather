@@ -8,9 +8,11 @@ import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.ui.platform.LocalContext
 import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import androidx.navigation.navArgument
 import com.sample.weatherinfo.presentation.theme.WeatherAppTheme
 import com.sample.weatherinfo.presentation.weather_hourly.WeatherForecastCompose
 import com.sample.weatherinfo.presentation.weather_home.WeatherHome
@@ -43,10 +45,16 @@ class MainActivity : AppCompatActivity() {
                     composable("WeatherHome") {
                         WeatherHome(navigation = navController, hiltViewModel(), LocalContext.current)
                     }
-                    composable("WeatherForecast") {
+                    composable("WeatherForecast/{city_name}",
+                        arguments = listOf(navArgument("city_name") {
+                            type = NavType.StringType
+                        })
+                    ) {
+                        val cityName = it.arguments?.getString("city_name") ?: "30022"
                         WeatherForecastCompose(
                             navigation = navController,
-                            hiltViewModel()
+                            hiltViewModel(),
+                            cityName
                         )
                     }
                 }

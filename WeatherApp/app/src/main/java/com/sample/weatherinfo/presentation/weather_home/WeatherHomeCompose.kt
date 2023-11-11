@@ -41,7 +41,6 @@ fun WeatherHome(
         viewModel.getWeatherInfoByLatLong()
         viewModel.weatherInfo.collect {
             it.data?.let { weatherInfo ->
-                println("UPDATING THE LOCATION")
                 viewModel.setLocalStoredLocation(context = current, weatherInfo.placeName )
             }
         }
@@ -64,7 +63,7 @@ fun WeatherHome(
                 shape = RoundedCornerShape(10.dp),
                 modifier = Modifier.padding(16.dp),
                 onClick = {
-                    navigation.navigate("WeatherForecast")
+                    navigation.navigate("WeatherForecast/${viewModel.state.weatherInfo?.placeName}")
                 }
             ) {
                 Row(
